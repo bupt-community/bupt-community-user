@@ -119,7 +119,6 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this),
-      // passForm: this.$passForm.createForm(this),
       visible: false,
       visiblePass: false,
     };

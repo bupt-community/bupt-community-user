@@ -10,7 +10,7 @@ export default {
     user: state => {
       if (!state.user) {
         try {
-          const user = localStorage.getItem(process.env.VUE_APP_USER_KEY)
+          const user = sessionStorage.getItem(process.env.VUE_APP_USER_KEY)
           state.user = JSON.parse(user)
         } catch (e) {
           console.error(e)
@@ -21,7 +21,7 @@ export default {
     permissions: state => {
       if (!state.permissions) {
         try {
-          const permissions = localStorage.getItem(process.env.VUE_APP_PERMISSIONS_KEY)
+          const permissions = sessionStorage.getItem(process.env.VUE_APP_PERMISSIONS_KEY)
           state.permissions = JSON.parse(permissions)
           state.permissions = state.permissions ? state.permissions : []
         } catch (e) {
@@ -33,7 +33,7 @@ export default {
     roles: state => {
       if (!state.roles) {
         try {
-          const roles = localStorage.getItem(process.env.VUE_APP_ROLES_KEY)
+          const roles = sessionStorage.getItem(process.env.VUE_APP_ROLES_KEY)
           state.roles = JSON.parse(roles)
           state.roles = state.roles ? state.roles : []
         } catch (e) {
@@ -45,7 +45,7 @@ export default {
     routesConfig: state => {
       if (!state.routesConfig) {
         try {
-          const routesConfig = localStorage.getItem(process.env.VUE_APP_ROUTES_KEY)
+          const routesConfig = sessionStorage.getItem(process.env.VUE_APP_ROUTES_KEY)
           state.routesConfig = JSON.parse(routesConfig)
           state.routesConfig = state.routesConfig ? state.routesConfig : []
         } catch (e) {
@@ -58,19 +58,19 @@ export default {
   mutations: {
     setUser (state, user) {
       state.user = user
-      localStorage.setItem(process.env.VUE_APP_USER_KEY, JSON.stringify(user))
+      sessionStorage.setItem(process.env.VUE_APP_USER_KEY, JSON.stringify(user))
     },
     setPermissions(state, permissions) {
       state.permissions = permissions
-      localStorage.setItem(process.env.VUE_APP_PERMISSIONS_KEY, JSON.stringify(permissions))
+      sessionStorage.setItem(process.env.VUE_APP_PERMISSIONS_KEY, JSON.stringify(permissions))
     },
     setRoles(state, roles) {
       state.roles = roles
-      localStorage.setItem(process.env.VUE_APP_ROLES_KEY, JSON.stringify(roles))
+      sessionStorage.setItem(process.env.VUE_APP_ROLES_KEY, JSON.stringify(roles))
     },
     setRoutesConfig(state, routesConfig) {
       state.routesConfig = routesConfig
-      localStorage.setItem(process.env.VUE_APP_ROUTES_KEY, JSON.stringify(routesConfig))
+      sessionStorage.setItem(process.env.VUE_APP_ROUTES_KEY, JSON.stringify(routesConfig))
     }
   }
 }

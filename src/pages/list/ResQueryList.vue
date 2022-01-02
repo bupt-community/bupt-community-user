@@ -277,7 +277,7 @@ export default {
       const data = res.data;
       if (data.code === 0) {
         this.dataSource = data.data.filter((item) => {
-          return item.userId !== this.currUser.userId;
+          return item.userId != this.currUser.userId;
         });
         this.dataSource = this.dataSource.map((item, index) => {
           item.key = index;

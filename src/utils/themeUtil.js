@@ -82,7 +82,7 @@ function loadLocalTheme(localSetting) {
 function getLocalSetting(loadTheme) {
   let localSetting = {}
   try {
-    const localSettingStr = localStorage.getItem(process.env.VUE_APP_SETTING_KEY)
+    const localSettingStr = sessionStorage.getItem(process.env.VUE_APP_SETTING_KEY)
     localSetting = JSON.parse(localSettingStr)
   } catch (e) {
     console.error(e)

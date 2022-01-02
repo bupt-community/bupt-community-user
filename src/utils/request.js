@@ -32,7 +32,7 @@ const METHOD = {
  * @returns {Promise<AxiosResponse<T>>}
  */
 async function request(url, method, params, config) {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = JSON.parse(sessionStorage.getItem("token"));
   if (token) {
     config = {
       headers: {
@@ -56,7 +56,7 @@ async function request(url, method, params, config) {
  * @param authType {AUTH_TYPE} 认证类型，默认：{AUTH_TYPE.BEARER}
  */
 function setAuthorization(auth) {
-  localStorage.setItem("token", JSON.stringify(auth));
+  sessionStorage.setItem("token", JSON.stringify(auth));
 }
 
 /**
@@ -64,7 +64,7 @@ function setAuthorization(auth) {
  * @param authType {AUTH_TYPE} 认证类型
  */
 function removeAuthorization() {
-  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
 }
 
 /**
@@ -73,7 +73,7 @@ function removeAuthorization() {
  * @returns {boolean}
  */
 function checkAuthorization() {
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   if (token !== null) {
     return true;
   }
